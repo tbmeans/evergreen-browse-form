@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<style>
+		body { margin: 0; padding: 0; padding-left: 200px; } #menu { position: absolute; background-color: rgb(235,235,235); top: 0; left: 0; padding: 5px; height: 700px; width: 200px; border: 0; border-right: 1px solid gray; } #shelfbrowser { position: relative; top: 0; left: 0; border: 0; height: 700px; width: 50%; border-right: 1px solid gray; } #bibrecord { position: relative; top: 0; left: 0; border: 0; height: 700px; width: 48%; border-right: 1px solid gray; }
+	</style>
+    <script>function openInIframe3() {  document.getElementById("bibrecord").src = document.getElementById("bibrecURL").value;  }</script>
+  </head>
+  <body>
+    <div id="menu">
+      <form action="http://buncombe.nccardinal.org/eg/opac/cnbrowse" method="get" target="shelfbrowser" >    
+        <input type="search" alt="Numeric Search" maxlength="200" size="10" name="cn" placeholder="Enter initial call no." />
+        <input type="hidden" name="locg" value="112" />
+	<input type="search" alt="Go to page" maxlength="200" size="10" name="cnoffset" placeholder="Enter browse page" />
+        <input type="submit" value="Browse shelves" />   
+      </form>
+      <br>
+      <p></p>
+      <form id="dropURLhere">
+        <input type="text" id="bibrecURL" placeholder="Enter bib. record URL">
+        <input type="submit" onclick="openInIframe3();return false;" value="Go to bib record">
+        <input type="reset" value="Clear entry">
+      </form>
+      <br>
+      <p></p>
+      <textarea rows="9" cols="13">
+      </textarea>
+    </div>
+    <iframe id="shelfbrowser" name="shelfbrowser" src=""></iframe>
+    <iframe id="bibrecord" name="bibrecord" src=""></iframe>
+  </body>
+</html>
 <!-- based on https://docs.evergreen-ils.org/dev/_simple_search_form.html -->
 <html>
 <form action="http://buncombe.nccardinal.org/eg/opac/cnbrowse" method="get" target="frame02">	
